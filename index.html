@@ -16,85 +16,87 @@
 <body>
 
 
-    <div class="overlay">
-        <div class="line"></div>
-    </div>
+    <div class="line"></div>
+
 
     <main>
+        <div class="form">
+            <form>
+                <label for="inIp">IP Adresse</label>
+                <input type="text" class="inIp" name="inIp" placeholder="Ip Adresse hier eingeben"
+                    onkeydown="return /[0-9.]/i.test(event.key) || alphaOnly(event)">
+                <label for="anteil">Netzanteil</label>
+                <input type="text" class="anteil" name="anteil" placeholder="Netzanteil hier eingeben"
+                    onkeydown="return  /[0-9.]/i.test(event.key) || alphaOnly(event)">
+                <input type="button" id="send" value="send">
 
-        <form>
-            <label for="inIp">IP Adresse</label>
-            <input type="text" class="inIp" name="inIp" placeholder="Ip Adresse hier eingeben"
-                onkeydown="return /[0-9.]/i.test(event.key) || alphaOnly(event)">
-            <label for="anteil">Netzanteil</label>
-            <input type="text" class="anteil" name="anteil" placeholder="Netzanteil hier eingeben"
-                onkeydown="return  /[0-9.]/i.test(event.key) || alphaOnly(event)">
-            <input type="button" id="send" value="send">
+            </form>
+        </div>
+        <div class="table">
+            <div class="overlay">
+            </div>
+            <table class="main">
+                <tr>
+                    <th></th>
+                    <th>1. Octet </th>
+                    <th>2. Octet </th>
+                    <th>3. Octet </th>
+                    <th>4. Octet </th>
+                </tr>
+                <tr>
+                    <td>IP</td>
+                    <td class="octetD td"></td>
+                    <td class="octetD td"></td>
+                    <td class="octetD td"></td>
+                    <td class="octetD td"></td>
+                </tr>
+                <tr>
+                    <td>IP binär</td>
+                    <td class="octetB td"></td>
+                    <td class="octetB td"></td>
+                    <td class="octetB td"></td>
+                    <td class="octetB td"></td>
+                </tr>
+                <tr>
+                    <td>Subnetzmaske</td>
+                    <td class="mask td"></td>
+                    <td class="mask td"></td>
+                    <td class="mask td"></td>
+                    <td class="mask td"></td>
+                </tr>
+                <tr>
+                    <td>Netzadresse binär</td>
+                    <td class="net td"></td>
+                    <td class="net td"></td>
+                    <td class="net td"></td>
+                    <td class="net td"></td>
+                </tr>
+                <tr>
+                    <td>Netzadresse Dezimal</td>
+                    <td class="netD td"></td>
+                    <td class="netD td"></td>
+                    <td class="netD td"></td>
+                    <td class="netD td"></td>
+                </tr>
+                <tr>
 
-        </form>
+                    <td>Broadcast binär</td>
+                    <td class="broad td"></td>
+                    <td class="broad td"></td>
+                    <td class="broad td"></td>
+                    <td class="broad td"></td>
+                </tr>
+                <tr>
 
-        <table class="main">
-            <tr>
-                <th></th>
-                <th>1. Octet </th>
-                <th>2. Octet </th>
-                <th>3. Octet </th>
-                <th>4. Octet </th>
-            </tr>
-            <tr>
-                <td>IP</td>
-                <td class="octetD td"></td>
-                <td class="octetD td"></td>
-                <td class="octetD td"></td>
-                <td class="octetD td"></td>
-            </tr>
-            <tr>
-                <td>IP binär</td>
-                <td class="octetB td"></td>
-                <td class="octetB td"></td>
-                <td class="octetB td"></td>
-                <td class="octetB td"></td>
-            </tr>
-            <tr>
-                <td>Subnetzmaske</td>
-                <td class="mask td"></td>
-                <td class="mask td"></td>
-                <td class="mask td"></td>
-                <td class="mask td"></td>
-            </tr>
-            <tr>
-                <td>Netzadresse binär</td>
-                <td class="net td"></td>
-                <td class="net td"></td>
-                <td class="net td"></td>
-                <td class="net td"></td>
-            </tr>
-            <tr>
-                <td>Netzadresse Dezimal</td>
-                <td class="netD td"></td>
-                <td class="netD td"></td>
-                <td class="netD td"></td>
-                <td class="netD td"></td>
-            </tr>
-            <tr>
+                    <td>Gateway</td>
+                    <td class="GW td"></td>
+                    <td class="GW td"></td>
+                    <td class="GW td"></td>
+                    <td class="GW td"></td>
+                </tr>
 
-                <td>Broadcast binär</td>
-                <td class="broad td"></td>
-                <td class="broad td"></td>
-                <td class="broad td"></td>
-                <td class="broad td"></td>
-            </tr>
-            <tr>
-
-                <td>Gateway</td>
-                <td class="GW td"></td>
-                <td class="GW td"></td>
-                <td class="GW td"></td>
-                <td class="GW td"></td>
-            </tr>
-
-        </table>
-
+            </table>
+        </div>
     </main>
 
 

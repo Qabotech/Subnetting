@@ -103,12 +103,17 @@ $("#send").click(
         } else {
             $(".overlay").addClass("transition");
             setTimeout(() => {
-
                 $(".overlay").hide();
             }, 2000);
         }
+        var td = document.querySelectorAll(".td");
+        for (let i = 0; i < td.length; i++) {
 
+            $(td[i]).addClass("transition")
+
+        }
     }
+
 );
 function alphaOnly(event) {
     var key = event.keyCode;
