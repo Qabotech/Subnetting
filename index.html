@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="app.js" defer></script>
+    <title>SubnetingG</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+        * {
+            margin: 0;
+            outline: 0;
+            border: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            margin: 0em 3em;
+            position: relative;
+        }
+
+        .main {
+            border-collapse: collapse;
+            font-size: 1.5em;
+            width: calc(45vw + 5em);
+            margin-top: 8px;
+
+        }
+
+        td,
+        th {
+            border: 1px solid #f0f0f0;
+            padding: 8px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f25861;
+            color: white;
+        }
+
+        tr {
+            background-color: #042940;
+            color: white;
+        }
+
+        tr td:first-child {
+            text-align: left;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            width: 24vw;
+            height: 55.5vh;
+            font-size: 2em;
+        }
+
+        form input[type="text"] {
+            height: 62px;
+            font-size: 0.6em;
+            padding: 0 0.7em;
+            margin: 0.5em 0;
+            border-radius: 0.5em;
+            background: #f25861;
+            color: white;
+
+        }
+
+        ::placeholder {
+            font-weight: 600;
+            color: white;
+        }
+
+        form input[type="button"] {
+            font-size: 0.7em;
+            padding: 0.5em;
+            margin: 0.5em 0;
+            border-radius: 0.5em;
+            background-color: #042940;
+            color: white;
+
+        }
+
+        .wrap {
+            position: relative;
+            height: 100vh;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: calc(45vw + 20em);
+            height: 100vh;
+            z-index: 99;
+            background: rgb(0, 0, 0, 0.5);
+            transition: opacity 2s ease-in-out;
+            overflow: hidden;
+        }
+
+        .overlay.transition {
+            opacity: 0;
+
+        }
+
+        .line {
+            position: absolute;
+            top: 49%;
+            left: 0.3em;
+            transform: translate(-50%, -50%);
+            width: 1em;
+            height: 105vh;
+            background: #042940;
+            z-index: 99;
+        }
+    </style>
+
+    <div class="overlay">
+        <div class="line"></div>
+    </div>
+
+    <main>
+
+        <form>
+            <label for="inIp">IP Adresse</label>
+            <input type="text" class="inIp" name="inIp" placeholder="Ip Adresse hier eingeben"
+                onkeydown="return /[0-9.]/i.test(event.key) || alphaOnly(event)">
+            <label for="anteil">Netzanteil</label>
+            <input type="text" class="anteil" name="anteil" placeholder="Netzanteil hier eingeben"
+                onkeydown="return  /[0-9.]/i.test(event.key) || alphaOnly(event)">
+            <input type="button" id="send" value="send">
+
+        </form>
+
+        <table class="main">
+            <tr>
+                <th></th>
+                <th>1. Octet </th>
+                <th>2. Octet </th>
+                <th>3. Octet </th>
+                <th>4. Octet </th>
+            </tr>
+            <tr>
+                <td>IP</td>
+                <td class="octetD td"></td>
+                <td class="octetD td"></td>
+                <td class="octetD td"></td>
+                <td class="octetD td"></td>
+            </tr>
+            <tr>
+                <td>IP binär</td>
+                <td class="octetB td"></td>
+                <td class="octetB td"></td>
+                <td class="octetB td"></td>
+                <td class="octetB td"></td>
+            </tr>
+            <tr>
+                <td>Subnetzmaske</td>
+                <td class="mask td"></td>
+                <td class="mask td"></td>
+                <td class="mask td"></td>
+                <td class="mask td"></td>
+            </tr>
+            <tr>
+                <td>Netzadresse binär</td>
+                <td class="net td"></td>
+                <td class="net td"></td>
+                <td class="net td"></td>
+                <td class="net td"></td>
+            </tr>
+            <tr>
+                <td>Netzadresse Dezimal</td>
+                <td class="netD td"></td>
+                <td class="netD td"></td>
+                <td class="netD td"></td>
+                <td class="netD td"></td>
+            </tr>
+            <tr>
+
+                <td>Broadcast binär</td>
+                <td class="broad td"></td>
+                <td class="broad td"></td>
+                <td class="broad td"></td>
+                <td class="broad td"></td>
+            </tr>
+            <tr>
+
+                <td>Gateway</td>
+                <td class="GW td"></td>
+                <td class="GW td"></td>
+                <td class="GW td"></td>
+                <td class="GW td"></td>
+            </tr>
+
+        </table>
+
+    </main>
+
+
+</body>
+
+</html>
