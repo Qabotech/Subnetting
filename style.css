@@ -93,9 +93,9 @@ form input[type="button"] {
 .overlay {
     position: absolute;
     top: 0;
-    left: 0;
-    width: calc(45vw + 20em);
-    height: 100vh;
+    left: -3%;
+    width: 150vw;
+    height: 150vh;
     z-index: 99;
     background: rgb(0, 0, 0, 0.5);
     transition: opacity 2s ease-in-out;
@@ -108,8 +108,10 @@ form input[type="button"] {
 
 }
 .td{
+
     color: rgba(255, 255, 255, 0.187);
     transition: color 2s ease-in-out;
+
 }
 .td.transition{
     color: white;
@@ -144,6 +146,7 @@ form input[type="button"] {
         height: auto;
     }
     .table .overlay{
+
         position: absolute;
         left: 50%;
         width: 110vw;
